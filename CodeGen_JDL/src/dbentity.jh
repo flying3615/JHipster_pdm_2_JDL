@@ -1,0 +1,3497 @@
+/*
+* dbentity.jh
+*
+* Created Date: 2016-05-13 18:40:48
+*
+* Copyright (c)  Centling Technologies Co., Ltd.
+*
+* This software is the confidential and proprietary information of
+* Centling Technologies Co., Ltd. ("Confidential Information"). You shall not
+* disclose such Confidential Information and shall use it only in accordance
+* with the terms of the license agreement you entered into with
+* Centling Technologies Co., Ltd.
+*/
+
+/**
+* @author garfield.yue
+* @version 0.1<br>
+*/
+
+entity Activity {
+    activityId Integer required ,
+    activityTitle String required maxlength(255),
+    activityType String  ,
+    activityBanner String required maxlength(255),
+    activityStyle String required maxlength(255),
+    activityDesc String required maxlength(1000),
+    activityStartDate Integer required ,
+    activityEndDate Integer required ,
+    activitySort Integer required ,
+    activityState Integer required 
+  }
+
+
+entity ActivityDetails {
+    activityDetailId Integer required ,
+    activityId Integer required ,
+    itemId Integer required ,
+    itemName String required maxlength(255),
+    storeId Integer required ,
+    storeName String required maxlength(255),
+    activityDetailState String required ,
+    activityDetailSort Integer required 
+  }
+
+
+entity Address {
+    addressId Integer required ,
+    memberId Integer required ,
+    trueName String required maxlength(50),
+    areaId Integer required ,
+    cityId Integer  ,
+    areaInfo String required maxlength(255),
+    address String required maxlength(255),
+    telPhone String  maxlength(20),
+    mobPhone String  maxlength(15),
+    isDefault String required ,
+    dlypId Integer  
+  }
+
+
+entity Admin {
+    adminId Integer required ,
+    adminName String required maxlength(20),
+    adminPassword String required maxlength(32),
+    adminLoginTime Integer required ,
+    adminLoginNum Integer required ,
+    adminIsSuper Integer required ,
+    adminGid Integer  
+  }
+
+
+entity AdminLog {
+    id Integer required ,
+    content String required maxlength(50),
+    createtime Integer  ,
+    adminName String required maxlength(20),
+    adminId Integer required ,
+    ip String required maxlength(15),
+    url String required maxlength(50)
+  }
+
+
+entity Adv {
+    advId Integer required ,
+    apId Integer required ,
+    advTitle String required maxlength(255),
+    advContent String required maxlength(1000),
+    advStartDate Integer  ,
+    advEndDate Integer  ,
+    slideSort Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    clickNum Integer required ,
+    isAllow Integer required ,
+    buyStyle String required maxlength(10),
+    goldpay Integer required 
+  }
+
+
+entity AdvClick {
+    advId Integer required ,
+    apId Integer required ,
+    clickYear Integer required ,
+    clickMonth Integer required ,
+    clickNum Integer required ,
+    advName String required maxlength(100),
+    apName String required maxlength(100)
+  }
+
+
+entity AdvPosition {
+    apId Integer required ,
+    apName String required maxlength(100),
+    apIntro String required maxlength(255),
+    apClass Integer required ,
+    apDisplay Integer required ,
+    isUse Integer required ,
+    apWidth Integer required ,
+    apHeight Integer required ,
+    apPrice Integer required ,
+    advNum Integer required ,
+    clickNum Integer required ,
+    defaultContent String required maxlength(100)
+  }
+
+
+entity AlbumClass {
+    aclassId Integer required ,
+    aclassName String required maxlength(100),
+    storeId Integer required ,
+    aclassDes String required maxlength(255),
+    aclassSort Integer required ,
+    aclassCover String required maxlength(255),
+    uploadTime Integer required ,
+    isDefault Integer required 
+  }
+
+
+entity AlbumPic {
+    apicId Integer required ,
+    apicName String required maxlength(100),
+    apicTag String required maxlength(255),
+    aclassId Integer required ,
+    apicCover String required maxlength(255),
+    apicSize Integer required ,
+    apicSpec String required maxlength(100),
+    storeId Integer required ,
+    uploadTime Integer required 
+  }
+
+
+entity Area {
+    areaId Integer required ,
+    areaName String required maxlength(50),
+    areaParentId Integer required ,
+    areaSort Integer required ,
+    areaDeep Integer required ,
+    areaRegion String  maxlength(3)
+  }
+
+
+entity ArrivalNotice {
+    anId Integer required ,
+    goodsId Integer required ,
+    goodsName String required maxlength(50),
+    memberId Integer required ,
+    anAddtime Integer required ,
+    anEmail String required maxlength(100),
+    anMobile String required maxlength(11),
+    anType Integer required 
+  }
+
+
+entity Article {
+    articleId Integer required ,
+    acId Integer required ,
+    articleUrl String  maxlength(100),
+    articleShow Integer required ,
+    articleSort Integer required ,
+    articleTitle String  maxlength(100),
+    articleContent String  ,
+    articleTime Integer required 
+  }
+
+
+entity ArticleClass {
+    acId Integer required ,
+    acCode String  maxlength(20),
+    acName String required maxlength(100),
+    acParentId Integer required ,
+    acSort Integer required 
+  }
+
+
+entity Attribute {
+    attrId Integer required ,
+    attrName String required maxlength(100),
+    typeId Integer required ,
+    attrValue String required ,
+    attrShow Integer required ,
+    attrSort Integer required 
+  }
+
+
+entity AttributeValue {
+    attrValueId Integer required ,
+    attrValueName String required maxlength(100),
+    attrId Integer required ,
+    typeId Integer required ,
+    attrValueSort Integer required 
+  }
+
+
+entity Brand {
+    brandId Integer required ,
+    brandName String  maxlength(100),
+    brandInitial String required maxlength(1),
+    brandClass String  maxlength(50),
+    brandPic String  maxlength(100),
+    brandSort Integer  ,
+    brandRecommend Integer  ,
+    storeId Integer required ,
+    brandApply Integer required ,
+    classId Integer  ,
+    showType Integer required 
+  }
+
+
+entity Cart {
+    cartId Integer required ,
+    buyerId Integer required ,
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    goodsId Integer required ,
+    goodsName String required maxlength(100),
+    goodsPrice BigDecimal required ,
+    goodsNum Integer required ,
+    goodsImage String required maxlength(100),
+    blId Integer required 
+  }
+
+
+entity ChatLog {
+    mId Integer required ,
+    fId Integer required ,
+    fName String required maxlength(50),
+    fIp String required maxlength(15),
+    tId Integer required ,
+    tName String required maxlength(50),
+    tMsg String  maxlength(300),
+    addTime Integer  
+  }
+
+
+entity ChatMsg {
+    mId Integer required ,
+    fId Integer required ,
+    fName String required maxlength(50),
+    fIp String required maxlength(15),
+    tId Integer required ,
+    tName String required maxlength(50),
+    tMsg String  maxlength(300),
+    rState Integer  ,
+    addTime Integer  
+  }
+
+
+entity Circle {
+    circleId Integer required ,
+    circleName String required maxlength(12),
+    circleDesc String  maxlength(255),
+    circleMasterid Integer required ,
+    circleMastername String required maxlength(50),
+    circleImg String  maxlength(50),
+    classId Integer required ,
+    circleMcount Integer required ,
+    circleThcount Integer required ,
+    circleGcount Integer required ,
+    circlePursuereason String  maxlength(255),
+    circleNotice String  maxlength(255),
+    circleStatus Integer required ,
+    circleStatusinfo String  maxlength(255),
+    circleJoinaudit Integer required ,
+    circleAddtime String required maxlength(10),
+    circleNoticetime String  maxlength(10),
+    isRecommend Integer required ,
+    isHot Integer required ,
+    circleTag String  maxlength(60),
+    newVerifycount Integer required ,
+    newInformcount Integer required ,
+    mapplyOpen Integer required ,
+    mapplyMl Integer required ,
+    newMapplycount Integer required 
+  }
+
+
+entity CircleAffix {
+    affixId Integer required ,
+    affixFilename String required maxlength(100),
+    affixFilethumb String required maxlength(100),
+    affixFilesize Integer required ,
+    affixAddtime String required maxlength(10),
+    affixType Integer required ,
+    memberId Integer required ,
+    themeId Integer required ,
+    replyId Integer required ,
+    circleId Integer required 
+  }
+
+
+entity CircleClass {
+    classId Integer required ,
+    className String required maxlength(50),
+    classAddtime String required maxlength(10),
+    classSort Integer required ,
+    classStatus Integer required ,
+    isRecommend Integer required 
+  }
+
+
+entity CircleExplog {
+    elId Integer required ,
+    circleId Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    elExp Integer required ,
+    elTime String required maxlength(10),
+    elType Integer required ,
+    elItemid String required maxlength(100),
+    elDesc String required maxlength(255)
+  }
+
+
+entity CircleExpmember {
+    memberId Integer required ,
+    circleId Integer required ,
+    emExp Integer required ,
+    emTime String required maxlength(10)
+  }
+
+
+entity CircleExptheme {
+    themeId Integer required ,
+    etExp Integer required ,
+    etTime String required maxlength(10)
+  }
+
+
+entity CircleFs {
+    circleId Integer required ,
+    friendshipId Integer required ,
+    friendshipName String required maxlength(11),
+    friendshipSort Integer required ,
+    friendshipStatus Integer required 
+  }
+
+
+entity CircleInform {
+    informId Integer required ,
+    circleId Integer required ,
+    circleName String required maxlength(12),
+    themeId Integer required ,
+    themeName String required maxlength(50),
+    replyId Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    informContent String required maxlength(255),
+    informTime String required maxlength(10),
+    informType Integer required ,
+    informState Integer required ,
+    informOpid Integer required ,
+    informOpname String required maxlength(50),
+    informOpexp Integer required ,
+    informOpresult String required maxlength(255)
+  }
+
+
+entity CircleLike {
+    themeId Integer required ,
+    memberId Integer required ,
+    circleId Integer required 
+  }
+
+
+entity CircleMapply {
+    mapplyId Integer required ,
+    circleId Integer required ,
+    memberId Integer required ,
+    mapplyReason String required maxlength(255),
+    mapplyTime String required maxlength(10)
+  }
+
+
+entity CircleMember {
+    memberId Integer required ,
+    circleId Integer required ,
+    circleName String required maxlength(12),
+    memberName String required maxlength(50),
+    cmApplycontent String  maxlength(255),
+    cmApplytime String required maxlength(10),
+    cmState Integer required ,
+    cmIntro String  maxlength(255),
+    cmJointime String required maxlength(10),
+    cmLevel Integer required ,
+    cmLevelname String required maxlength(10),
+    cmExp Integer required ,
+    cmNextexp Integer required ,
+    isIdentity Integer required ,
+    isAllowspeak Integer required ,
+    isStar Integer required ,
+    cmThcount Integer required ,
+    cmComcount Integer required ,
+    cmLastspeaktime String  maxlength(10),
+    isRecommend Integer required 
+  }
+
+
+entity CircleMl {
+    circleId Integer required ,
+    mlrefId Integer  ,
+    ml1 String required maxlength(10),
+    ml2 String required maxlength(10),
+    ml3 String required maxlength(10),
+    ml4 String required maxlength(10),
+    ml5 String required maxlength(10),
+    ml6 String required maxlength(10),
+    ml7 String required maxlength(10),
+    ml8 String required maxlength(10),
+    ml9 String required maxlength(10),
+    ml10 String required maxlength(10),
+    ml11 String required maxlength(10),
+    ml12 String required maxlength(10),
+    ml13 String required maxlength(10),
+    ml14 String required maxlength(10),
+    ml15 String required maxlength(10),
+    ml16 String required maxlength(10)
+  }
+
+
+entity CircleMldefault {
+    mldId Integer required ,
+    mldName String required maxlength(10),
+    mldExp Integer required 
+  }
+
+
+entity CircleMlref {
+    mlrefId Integer required ,
+    mlrefName String required maxlength(10),
+    mlrefAddtime String required maxlength(10),
+    mlrefStatus Integer required ,
+    mlref1 String required maxlength(10),
+    mlref2 String required maxlength(10),
+    mlref3 String required maxlength(10),
+    mlref4 String required maxlength(10),
+    mlref5 String required maxlength(10),
+    mlref6 String required maxlength(10),
+    mlref7 String required maxlength(10),
+    mlref8 String required maxlength(10),
+    mlref9 String required maxlength(10),
+    mlref10 String required maxlength(10),
+    mlref11 String required maxlength(10),
+    mlref12 String required maxlength(10),
+    mlref13 String required maxlength(10),
+    mlref14 String required maxlength(10),
+    mlref15 String required maxlength(10),
+    mlref16 String required maxlength(10)
+  }
+
+
+entity CircleRecycle {
+    recycleId Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    circleId Integer required ,
+    circleName String required maxlength(12),
+    themeName String required maxlength(50),
+    recycleContent String required ,
+    recycleOpid Integer required ,
+    recycleOpname String required maxlength(50),
+    recycleType Integer required ,
+    recycleTime String required maxlength(10)
+  }
+
+
+entity CircleThclass {
+    thclassId Integer required ,
+    thclassName String required maxlength(20),
+    thclassStatus Integer required ,
+    isModerator Integer required ,
+    thclassSort Integer required ,
+    circleId Integer required 
+  }
+
+
+entity CircleTheme {
+    themeId Integer required ,
+    themeName String required maxlength(50),
+    themeContent String required ,
+    circleId Integer required ,
+    circleName String required maxlength(12),
+    thclassId Integer required ,
+    thclassName String required maxlength(20),
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    isIdentity Integer required ,
+    themeAddtime String required maxlength(10),
+    themeEditname String  maxlength(50),
+    themeEdittime String  maxlength(10),
+    themeLikecount Integer required ,
+    themeCommentcount Integer required ,
+    themeBrowsecount Integer required ,
+    themeSharecount Integer required ,
+    isStick Integer required ,
+    isDigest Integer required ,
+    lastspeakId Integer  ,
+    lastspeakName String  maxlength(50),
+    lastspeakTime String  maxlength(10),
+    hasGoods Integer required ,
+    hasAffix Integer required ,
+    isClosed Integer required ,
+    isRecommend Integer required ,
+    isShut Integer required ,
+    themeExp Integer required ,
+    themeReadperm Integer required ,
+    themeSpecial Integer required 
+  }
+
+
+entity CircleThg {
+    themegoodsId Integer required ,
+    themeId Integer required ,
+    replyId Integer required ,
+    circleId Integer required ,
+    goodsId Integer required ,
+    goodsName String required maxlength(100),
+    goodsPrice BigDecimal required ,
+    goodsImage String required maxlength(1000),
+    storeId Integer required ,
+    thgType Integer required ,
+    thgUrl String  maxlength(1000)
+  }
+
+
+entity CircleThpoll {
+    themeId Integer required ,
+    pollMultiple Integer required ,
+    pollStartime String required maxlength(10),
+    pollEndtime String required maxlength(10),
+    pollDays Integer required ,
+    pollVoters Integer required 
+  }
+
+
+entity CircleThpolloption {
+    pollopId Integer required ,
+    themeId Integer required ,
+    pollopOption String required maxlength(80),
+    pollopVotes Integer required ,
+    pollopSort Integer required ,
+    pollopVotername String  
+  }
+
+
+entity CircleThpollvoter {
+    themeId Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    pollvoOptions String required ,
+    pollvoTime String required maxlength(10)
+  }
+
+
+entity CircleThreply {
+    themeId Integer required ,
+    replyId Integer required ,
+    circleId Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    replyContent String required ,
+    replyAddtime String required maxlength(10),
+    replyReplyid Integer  ,
+    replyReplyname String  maxlength(50),
+    isClosed Integer required ,
+    replyExp Integer required 
+  }
+
+
+entity CmsArticle {
+    articleId Integer required ,
+    articleTitle String required maxlength(50),
+    articleClassId Integer required ,
+    articleOrigin String  maxlength(50),
+    articleOriginAddress String  maxlength(255),
+    articleAuthor String required maxlength(50),
+    articleAbstract String  maxlength(140),
+    articleContent String  ,
+    articleImage String  maxlength(255),
+    articleKeyword String  maxlength(255),
+    articleLink String  maxlength(255),
+    articleGoods String  ,
+    articleStartTime Integer required ,
+    articleEndTime Integer required ,
+    articlePublishTime Integer required ,
+    articleClick Integer required ,
+    articleSort Integer required ,
+    articleCommendFlag Integer required ,
+    articleCommentFlag Integer required ,
+    articleVerifyAdmin String  maxlength(50),
+    articleVerifyTime Integer required ,
+    articleState Integer required ,
+    articlePublisherName String required maxlength(50),
+    articlePublisherId Integer required ,
+    articleType Integer required ,
+    articleAttachmentPath String required maxlength(50),
+    articleImageAll String  ,
+    articleModifyTime Integer required ,
+    articleTag String  maxlength(255),
+    articleCommentCount Integer required ,
+    articleAttitude1 Integer required ,
+    articleAttitude2 Integer required ,
+    articleAttitude3 Integer required ,
+    articleAttitude4 Integer required ,
+    articleAttitude5 Integer required ,
+    articleAttitude6 Integer required ,
+    articleTitleShort String required maxlength(50),
+    articleAttitudeFlag Integer required ,
+    articleCommendImageFlag Integer required ,
+    articleShareCount Integer required ,
+    articleVerifyReason String  maxlength(255)
+  }
+
+
+entity CmsArticleAttitude {
+    attitudeId Integer required ,
+    attitudeArticleId Integer required ,
+    attitudeMemberId Integer required ,
+    attitudeTime Integer required 
+  }
+
+
+entity CmsArticleClass {
+    classId Integer required ,
+    className String required maxlength(50),
+    classSort Integer required 
+  }
+
+
+entity CmsComment {
+    commentId Integer required ,
+    commentType Integer required ,
+    commentObjectId Integer required ,
+    commentMessage String required maxlength(2000),
+    commentMemberId Integer required ,
+    commentTime Integer required ,
+    commentQuote String  maxlength(255),
+    commentUp Integer required 
+  }
+
+
+entity CmsCommentUp {
+    upId Integer required ,
+    commentId Integer required ,
+    upMemberId Integer required ,
+    upTime Integer required 
+  }
+
+
+entity CmsIndexModule {
+    moduleId Integer required ,
+    moduleTitle String  maxlength(50),
+    moduleName String required maxlength(50),
+    moduleType String  maxlength(50),
+    moduleSort Integer  ,
+    moduleState Integer  ,
+    moduleContent String  ,
+    moduleStyle String required maxlength(50),
+    moduleView Integer required 
+  }
+
+
+entity CmsModule {
+    moduleId Integer required ,
+    moduleTitle String required maxlength(50),
+    moduleName String required maxlength(50),
+    moduleType String required maxlength(50),
+    moduleClass Integer required 
+  }
+
+
+entity CmsModuleAssembly {
+    assemblyId Integer required ,
+    assemblyTitle String required maxlength(50),
+    assemblyName String required maxlength(50),
+    assemblyExplain String required maxlength(255)
+  }
+
+
+entity CmsModuleFrame {
+    frameId Integer required ,
+    frameTitle String required maxlength(50),
+    frameName String required maxlength(50),
+    frameExplain String required maxlength(255),
+    frameStructure String required maxlength(255)
+  }
+
+
+entity CmsNavigation {
+    navigationId Integer required ,
+    navigationTitle String required maxlength(50),
+    navigationLink String required maxlength(255),
+    navigationSort Integer required ,
+    navigationOpenType Integer required 
+  }
+
+
+entity CmsPicture {
+    pictureId Integer required ,
+    pictureTitle String required maxlength(50),
+    pictureClassId Integer required ,
+    pictureAuthor String required maxlength(50),
+    pictureAbstract String  maxlength(140),
+    pictureImage String  maxlength(255),
+    pictureKeyword String  maxlength(255),
+    picturePublishTime Integer required ,
+    pictureClick Integer required ,
+    pictureSort Integer required ,
+    pictureCommendFlag Integer required ,
+    pictureCommentFlag Integer required ,
+    pictureVerifyAdmin String  maxlength(50),
+    pictureVerifyTime Integer required ,
+    pictureState Integer required ,
+    picturePublisherName String required maxlength(50),
+    picturePublisherId Integer required ,
+    pictureType Integer required ,
+    pictureAttachmentPath String required maxlength(50),
+    pictureModifyTime Integer required ,
+    pictureTag String  maxlength(255),
+    pictureCommentCount Integer required ,
+    pictureTitleShort String required maxlength(50),
+    pictureImageCount Integer required ,
+    pictureShareCount Integer required ,
+    pictureVerifyReason String  maxlength(255)
+  }
+
+
+entity CmsPictureClass {
+    classId Integer required ,
+    className String required maxlength(50),
+    classSort Integer required 
+  }
+
+
+entity CmsPictureImage {
+    imageId Integer required ,
+    imageName String required maxlength(255),
+    imageAbstract String  maxlength(200),
+    imageGoods String  ,
+    imageStore String  maxlength(255),
+    imageWidth Integer  ,
+    imageHeight Integer  ,
+    imagePictureId Integer required ,
+    imagePath String  maxlength(50)
+  }
+
+
+entity CmsSpecial {
+    specialId Integer required ,
+    specialTitle String required maxlength(50),
+    specialMarginTop Integer  ,
+    specialBackground String  maxlength(255),
+    specialImage String  maxlength(255),
+    specialImageAll String  ,
+    specialContent String  ,
+    specialModifyTime Integer required ,
+    specialPublishId Integer required ,
+    specialState Integer required ,
+    specialBackgroundColor String required maxlength(10),
+    specialRepeat String required maxlength(10),
+    specialType Integer required 
+  }
+
+
+entity CmsTag {
+    tagId Integer required ,
+    tagName String required maxlength(50),
+    tagSort Integer required ,
+    tagCount Integer required 
+  }
+
+
+entity CmsTagRelation {
+    relationId Integer required ,
+    relationType Integer required ,
+    relationTagId Integer required ,
+    relationObjectId Integer required 
+  }
+
+
+entity Complain {
+    complainId Integer required ,
+    orderId Integer required ,
+    orderGoodsId Integer  ,
+    accuserId Integer required ,
+    accuserName String required maxlength(50),
+    accusedId Integer required ,
+    accusedName String required maxlength(50),
+    complainSubjectContent String required maxlength(50),
+    complainSubjectId Integer required ,
+    complainContent String required maxlength(255),
+    complainPic1 String required maxlength(100),
+    complainPic2 String required maxlength(100),
+    complainPic3 String required maxlength(100),
+    complainDatetime Integer required ,
+    complainHandleDatetime Integer required ,
+    complainHandleMemberId Integer required ,
+    appealMessage String required maxlength(255),
+    appealDatetime Integer required ,
+    appealPic1 String required maxlength(100),
+    appealPic2 String required maxlength(100),
+    appealPic3 String required maxlength(100),
+    finalHandleMessage String required maxlength(255),
+    finalHandleDatetime Integer required ,
+    finalHandleMemberId Integer required ,
+    complainState Integer required ,
+    complainActive Integer required 
+  }
+
+
+entity ComplainSubject {
+    complainSubjectId Integer required ,
+    complainSubjectContent String required maxlength(50),
+    complainSubjectDesc String required maxlength(100),
+    complainSubjectState Integer required 
+  }
+
+
+entity ComplainTalk {
+    talkId Integer required ,
+    complainId Integer required ,
+    talkMemberId Integer required ,
+    talkMemberName String required maxlength(50),
+    talkMemberType String required maxlength(10),
+    talkContent String required maxlength(255),
+    talkState Integer required ,
+    talkAdmin Integer required ,
+    talkDatetime Integer required 
+  }
+
+
+entity Consult {
+    consultId Integer required ,
+    goodsId Integer  ,
+    goodsName String required maxlength(100),
+    memberId Integer required ,
+    memberName String  maxlength(100),
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    ctId Integer required ,
+    consultContent String  maxlength(255),
+    consultAddtime Integer  ,
+    consultReply String required maxlength(255),
+    consultReplyTime Integer  ,
+    isanonymous Integer required 
+  }
+
+
+entity ConsultType {
+    ctId Integer required ,
+    ctName String required maxlength(10),
+    ctIntroduce String required ,
+    ctSort Integer required 
+  }
+
+
+entity Cron {
+    id Integer required ,
+    type Integer  ,
+    exeid Integer required ,
+    exetime Integer required 
+  }
+
+
+entity Daddress {
+    addressId Integer required ,
+    storeId Integer required ,
+    sellerName String required maxlength(50),
+    areaId Integer required ,
+    cityId Integer  ,
+    areaInfo String  maxlength(100),
+    address String required maxlength(100),
+    telphone String  maxlength(40),
+    company String required maxlength(50),
+    isDefault String required 
+  }
+
+
+entity DeliveryOrder {
+    orderId Integer required ,
+    addtime Integer  ,
+    orderSn Integer  ,
+    dlypId Integer  ,
+    shippingCode String  maxlength(50),
+    expressCode String  maxlength(30),
+    expressName String  maxlength(30),
+    reciverName String  maxlength(20),
+    reciverTelphone String  maxlength(20),
+    reciverMobphone String  maxlength(11),
+    dlyoState Integer required ,
+    dlyoPickupCode String  maxlength(4)
+  }
+
+
+entity DeliveryPoint {
+    dlypId Integer required ,
+    dlypName String required maxlength(50),
+    dlypPasswd String required maxlength(32),
+    dlypTruename String required maxlength(20),
+    dlypMobile String required maxlength(11),
+    dlypTelephony String required maxlength(20),
+    dlypAddressName String required maxlength(20),
+    dlypArea2 Integer required ,
+    dlypArea3 Integer required ,
+    dlypAreaInfo String required maxlength(255),
+    dlypAddress String required maxlength(255),
+    dlypIdcard String required maxlength(18),
+    dlypIdcardImage String required maxlength(255),
+    dlypAddtime Integer required ,
+    dlypState Integer required ,
+    dlypFailReason String  maxlength(255)
+  }
+
+
+entity Document {
+    docId Integer required ,
+    docCode String required maxlength(255),
+    docTitle String required maxlength(255),
+    docContent String required ,
+    docTime Integer required 
+  }
+
+
+entity EvaluateGoods {
+    gevalId Integer required ,
+    gevalOrderid Integer required ,
+    gevalOrderno Integer required ,
+    gevalOrdergoodsid Integer required ,
+    gevalGoodsid Integer required ,
+    gevalGoodsname String required maxlength(100),
+    gevalGoodsprice BigDecimal  ,
+    gevalGoodsimage String  maxlength(255),
+    gevalScores Integer required ,
+    gevalContent String  maxlength(255),
+    gevalIsanonymous Integer required ,
+    gevalAddtime Integer required ,
+    gevalStoreid Integer required ,
+    gevalStorename String required maxlength(100),
+    gevalFrommemberid Integer required ,
+    gevalFrommembername String required maxlength(100),
+    gevalState Integer required ,
+    gevalRemark String  maxlength(255),
+    gevalExplain String  maxlength(255),
+    gevalImage String  maxlength(255)
+  }
+
+
+entity EvaluateStore {
+    sevalId Integer required ,
+    sevalOrderid Integer required ,
+    sevalOrderno String required maxlength(100),
+    sevalAddtime Integer required ,
+    sevalStoreid Integer required ,
+    sevalStorename String required maxlength(100),
+    sevalMemberid Integer required ,
+    sevalMembername String required maxlength(100),
+    sevalDesccredit Integer required ,
+    sevalServicecredit Integer required ,
+    sevalDeliverycredit Integer required 
+  }
+
+
+entity ExppointsLog {
+    expId Integer required ,
+    expMemberid Integer required ,
+    expMembername String required maxlength(100),
+    expPoints Integer required ,
+    expAddtime Integer required ,
+    expDesc String required maxlength(100),
+    expStage String required maxlength(50)
+  }
+
+
+entity Express {
+    id Integer required ,
+    eName String required maxlength(50),
+    eState String required ,
+    eCode String required maxlength(50),
+    eLetter String required maxlength(1),
+    eOrder String required ,
+    eUrl String required maxlength(100),
+    eZtState Integer  
+  }
+
+
+entity Favorites {
+    logId Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    favId Integer required ,
+    favType String required maxlength(5),
+    favTime Integer required ,
+    storeId Integer required ,
+    storeName String required maxlength(20),
+    scId Integer  ,
+    goodsName String  maxlength(50),
+    goodsImage String  maxlength(100),
+    gcId Integer  ,
+    logPrice BigDecimal  ,
+    logMsg String  maxlength(20)
+  }
+
+
+entity Flea {
+    goodsId Integer required ,
+    goodsName String required maxlength(100),
+    gcId Integer required ,
+    gcName String required maxlength(200),
+    memberId Integer required ,
+    memberName String required maxlength(110),
+    goodsImage String required maxlength(100),
+    goodsTag String required maxlength(100),
+    goodsPrice BigDecimal required ,
+    goodsStorePrice BigDecimal required ,
+    goodsShow Integer required ,
+    goodsClick Integer required ,
+    fleaCollectNum Integer required ,
+    goodsCommend Integer required ,
+    goodsAddTime String required maxlength(10),
+    goodsKeywords String required maxlength(255),
+    goodsDescription String required maxlength(255),
+    goodsBody String required ,
+    commentnum Integer required ,
+    salenum Integer required ,
+    fleaQuality Integer required ,
+    fleaPname String  maxlength(20),
+    fleaPphone String  maxlength(20),
+    fleaAreaId Integer required ,
+    fleaAreaName String required maxlength(50)
+  }
+
+
+entity FleaArea {
+    fleaAreaId Integer required ,
+    fleaAreaName String required maxlength(50),
+    fleaAreaParentId Integer required ,
+    fleaAreaSort Integer required ,
+    fleaAreaDeep Integer required ,
+    fleaAreaHot Integer required 
+  }
+
+
+entity FleaClass {
+    gcId Integer required ,
+    gcName String required maxlength(100),
+    gcNameIndex String required maxlength(100),
+    gcParentId Integer required ,
+    gcSort Integer required ,
+    gcShow Integer required ,
+    gcIndexShow Integer required 
+  }
+
+
+entity FleaClassIndex {
+    fcIndexId Integer required ,
+    fcIndexClass String required maxlength(50),
+    fcIndexCode String required maxlength(50),
+    fcIndexId1 String required maxlength(50),
+    fcIndexName1 String required maxlength(50),
+    fcIndexId2 String required maxlength(50),
+    fcIndexName2 String required maxlength(50),
+    fcIndexId3 String required maxlength(50),
+    fcIndexName3 String required maxlength(50),
+    fcIndexId4 String required maxlength(50),
+    fcIndexName4 String required maxlength(50)
+  }
+
+
+entity FleaConsult {
+    consultId Integer required ,
+    goodsId Integer  ,
+    memberId Integer required ,
+    sellerId Integer required ,
+    email String  maxlength(255),
+    consultContent String  maxlength(4000),
+    consultAddtime Integer  ,
+    consultReply String  maxlength(4000),
+    consultReplyTime Integer  ,
+    type String required maxlength(20)
+  }
+
+
+entity FleaFavorites {
+    memberId Integer required ,
+    favId Integer required ,
+    favType String required maxlength(20),
+    favTime String required maxlength(10)
+  }
+
+
+entity FleaUpload {
+    uploadId Integer required ,
+    fileName String  maxlength(100),
+    fileThumb String  maxlength(100),
+    fileWm String  maxlength(100),
+    fileSize Integer required ,
+    storeId Integer required ,
+    uploadType Integer required ,
+    uploadTime Integer required ,
+    itemId Integer required 
+  }
+
+
+entity Flowstat {
+    stattime Integer required ,
+    clicknum Integer required ,
+    storeId Integer required ,
+    type String required maxlength(10),
+    goodsId Integer required 
+  }
+
+
+entity Flowstat1 {
+    stattime Integer required ,
+    clicknum Integer required ,
+    storeId Integer required ,
+    type String required maxlength(10),
+    goodsId Integer required 
+  }
+
+
+entity Flowstat2 {
+    stattime Integer required ,
+    clicknum Integer required ,
+    storeId Integer required ,
+    type String required maxlength(10),
+    goodsId Integer required 
+  }
+
+
+entity Gadmin {
+    gid Integer required ,
+    gname String  maxlength(50),
+    limits String  
+  }
+
+
+entity Goods {
+    goodsId Integer required ,
+    goodsCommonid Integer required ,
+    goodsName String required maxlength(50),
+    goodsJingle String required maxlength(150),
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    gcId Integer required ,
+    gcId1 Integer required ,
+    gcId2 Integer required ,
+    gcId3 Integer required ,
+    brandId Integer required ,
+    goodsPrice BigDecimal required ,
+    goodsPromotionPrice BigDecimal required ,
+    goodsPromotionType Integer required ,
+    goodsMarketprice BigDecimal required ,
+    goodsSerial String required maxlength(50),
+    goodsStorageAlarm Integer required ,
+    goodsClick Integer required ,
+    goodsSalenum Integer required ,
+    goodsCollect Integer required ,
+    goodsSpec String required ,
+    goodsStorage Integer required ,
+    goodsImage String required maxlength(100),
+    goodsState Integer required ,
+    goodsVerify Integer required ,
+    goodsAddtime Integer required ,
+    goodsEdittime Integer required ,
+    areaid1 Integer required ,
+    areaid2 Integer required ,
+    colorId Integer required ,
+    transportId Integer required ,
+    goodsFreight BigDecimal required ,
+    goodsVat Integer required ,
+    goodsCommend Integer required ,
+    goodsStcids String required maxlength(255),
+    evaluationGoodStar Integer required ,
+    evaluationCount Integer required ,
+    isVirtual Integer required ,
+    virtualIndate Integer required ,
+    virtualLimit Integer required ,
+    virtualInvalidRefund Integer required ,
+    isFcode Integer required ,
+    isAppoint Integer required ,
+    isPresell Integer required ,
+    haveGift Integer required ,
+    isOwnShop Integer required 
+  }
+
+
+entity GoodsAttrIndex {
+    goodsId Integer required ,
+    goodsCommonid Integer required ,
+    gcId Integer required ,
+    typeId Integer required ,
+    attrId Integer required ,
+    attrValueId Integer required 
+  }
+
+
+entity GoodsBrowse {
+    goodsId Integer required ,
+    memberId Integer required ,
+    browsetime Integer required ,
+    gcId Integer required ,
+    gcId1 Integer required ,
+    gcId2 Integer required ,
+    gcId3 Integer required 
+  }
+
+
+entity GoodsClass {
+    gcId Integer required ,
+    gcName String required maxlength(100),
+    typeId Integer required ,
+    typeName String required maxlength(100),
+    gcParentId Integer required ,
+    commisRate Float required ,
+    gcSort Integer required ,
+    gcVirtual Integer required ,
+    gcTitle String required maxlength(200),
+    gcKeywords String required maxlength(255),
+    gcDescription String required maxlength(255),
+    gcShow Integer required 
+  }
+
+
+entity GoodsClassNav {
+    cnAdv2Link String required maxlength(100),
+    gcId Integer required ,
+    cnAlias String  maxlength(100),
+    cnClassids String  maxlength(100),
+    cnBrandids String  maxlength(100),
+    cnPic String  maxlength(100),
+    cnAdv1 String  maxlength(100),
+    cnAdv1Link String  maxlength(100),
+    cnAdv2 String  maxlength(100)
+  }
+
+
+entity GoodsClassStaple {
+    stapleId Integer required ,
+    stapleName String required maxlength(255),
+    gcId1 Integer required ,
+    gcId2 Integer required ,
+    gcId3 Integer required ,
+    typeId Integer required ,
+    memberId Integer required ,
+    counter Integer required 
+  }
+
+
+entity GoodsClassTag {
+    gcTagId Integer required ,
+    gcId1 Integer required ,
+    gcId2 Integer required ,
+    gcId3 Integer required ,
+    gcTagName String required maxlength(255),
+    gcTagValue String required ,
+    gcId Integer required ,
+    typeId Integer required 
+  }
+
+
+entity GoodsCombo {
+    comboId Integer required ,
+    goodsId Integer required ,
+    goodsCommonid Integer required ,
+    comboGoodsid Integer required 
+  }
+
+
+entity GoodsCommon {
+    goodsCommonid Integer required ,
+    goodsName String required maxlength(50),
+    goodsJingle String required maxlength(150),
+    gcId Integer required ,
+    gcId1 Integer required ,
+    gcId2 Integer required ,
+    gcId3 Integer required ,
+    gcName String required maxlength(200),
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    specName String required maxlength(255),
+    specValue String required ,
+    brandId Integer required ,
+    brandName String required maxlength(100),
+    typeId Integer required ,
+    goodsImage String required maxlength(100),
+    goodsAttr String required ,
+    goodsBody String required ,
+    mobileBody String required ,
+    goodsState Integer required ,
+    goodsStateremark String  maxlength(255),
+    goodsVerify Integer required ,
+    goodsVerifyremark String  maxlength(255),
+    goodsLock Integer required ,
+    goodsAddtime Integer required ,
+    goodsSelltime Integer required ,
+    goodsSpecname String required ,
+    goodsPrice BigDecimal required ,
+    goodsMarketprice BigDecimal required ,
+    goodsCostprice BigDecimal required ,
+    goodsDiscount Float required ,
+    goodsSerial String required maxlength(50),
+    goodsStorageAlarm Integer required ,
+    transportId Integer required ,
+    transportTitle String  maxlength(60),
+    goodsCommend Integer required ,
+    goodsFreight BigDecimal required ,
+    goodsVat Integer required ,
+    areaid1 Integer required ,
+    areaid2 Integer required ,
+    goodsStcids String required maxlength(255),
+    plateidTop Integer  ,
+    plateidBottom Integer  ,
+    isVirtual Integer required ,
+    virtualIndate Integer  ,
+    virtualLimit Integer  ,
+    virtualInvalidRefund Integer required ,
+    isFcode Integer required ,
+    isAppoint Integer required ,
+    appointSatedate Integer required ,
+    isPresell Integer required ,
+    presellDeliverdate Integer required ,
+    isOwnShop Integer required 
+  }
+
+
+entity GoodsFcode {
+    fcId Integer required ,
+    goodsCommonid Integer required ,
+    fcCode String required maxlength(20),
+    fcState Integer required 
+  }
+
+
+entity GoodsGift {
+    giftId Integer required ,
+    goodsId Integer required ,
+    goodsCommonid Integer required ,
+    giftGoodsid Integer required ,
+    giftGoodsname String required maxlength(50),
+    giftGoodsimage String required maxlength(100),
+    giftAmount Integer required 
+  }
+
+
+entity GoodsImages {
+    goodsImageId Integer required ,
+    goodsCommonid Integer required ,
+    storeId Integer required ,
+    colorId Integer required ,
+    goodsImage String required maxlength(1000),
+    goodsImageSort Integer required ,
+    isDefault Integer required 
+  }
+
+
+entity Groupbuy {
+    groupbuyId Integer required ,
+    groupbuyName String required maxlength(255),
+    startTime Integer required ,
+    endTime Integer required ,
+    goodsId Integer required ,
+    goodsCommonid Integer required ,
+    goodsName String required maxlength(200),
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    goodsPrice BigDecimal required ,
+    groupbuyPrice BigDecimal required ,
+    groupbuyRebate BigDecimal required ,
+    virtualQuantity Integer required ,
+    upperLimit Integer required ,
+    buyerCount Integer required ,
+    buyQuantity Integer required ,
+    groupbuyIntro String  ,
+    state Integer required ,
+    recommended Integer required ,
+    views Integer required ,
+    classId Integer required ,
+    sClassId Integer required ,
+    groupbuyImage String required maxlength(100),
+    groupbuyImage1 String  maxlength(100),
+    remark String required maxlength(255),
+    isVr Integer required ,
+    vrCityId Integer  ,
+    vrAreaId Integer  ,
+    vrMallId Integer  ,
+    vrClassId Integer  ,
+    vrSClassId Integer  
+  }
+
+
+entity GroupbuyClass {
+    classId Integer required ,
+    className String required maxlength(20),
+    classParentId Integer required ,
+    sort Integer required ,
+    deep Integer required 
+  }
+
+
+entity GroupbuyPriceRange {
+    rangeId Integer required ,
+    rangeName String required maxlength(20),
+    rangeStart Integer required ,
+    rangeEnd Integer required 
+  }
+
+
+entity GroupbuyQuota {
+    quotaId Integer required ,
+    memberId Integer required ,
+    storeId Integer required ,
+    memberName String required maxlength(50),
+    storeName String required maxlength(50),
+    startTime Integer required ,
+    endTime Integer required 
+  }
+
+
+entity Help {
+    helpId Integer required ,
+    helpSort Integer  ,
+    helpTitle String required maxlength(100),
+    helpInfo String  ,
+    helpUrl String  maxlength(100),
+    updateTime Integer required ,
+    typeId Integer required ,
+    pageShow Integer  
+  }
+
+
+entity HelpType {
+    typeId Integer required ,
+    typeName String required maxlength(50),
+    typeSort Integer  ,
+    helpCode String  maxlength(10),
+    helpShow Integer  ,
+    pageShow Integer  
+  }
+
+
+entity Inform {
+    informId Integer required ,
+    informMemberId Integer required ,
+    informMemberName String required maxlength(50),
+    informGoodsId Integer required ,
+    informGoodsName String required maxlength(100),
+    informSubjectId Integer required ,
+    informSubjectContent String required maxlength(50),
+    informContent String required maxlength(100),
+    informPic1 String required maxlength(100),
+    informPic2 String required maxlength(100),
+    informPic3 String required maxlength(100),
+    informDatetime Integer required ,
+    informStoreId Integer required ,
+    informState Integer required ,
+    informHandleType Integer required ,
+    informHandleMessage String required maxlength(100),
+    informHandleDatetime Integer required ,
+    informHandleMemberId Integer required ,
+    informGoodsImage String  maxlength(150),
+    informStoreName String  maxlength(100)
+  }
+
+
+entity InformSubject {
+    informSubjectId Integer required ,
+    informSubjectContent String required maxlength(100),
+    informSubjectTypeId Integer required ,
+    informSubjectTypeName String required maxlength(50),
+    informSubjectState Integer required 
+  }
+
+
+entity InformSubjectType {
+    informTypeId Integer required ,
+    informTypeName String required maxlength(50),
+    informTypeDesc String required maxlength(100),
+    informTypeState Integer required 
+  }
+
+
+entity Invoice {
+    invId Integer required ,
+    memberId Integer required ,
+    invState String  ,
+    invTitle String  maxlength(50),
+    invContent String  maxlength(10),
+    invCompany String  maxlength(50),
+    invCode String  maxlength(50),
+    invRegAddr String  maxlength(50),
+    invRegPhone String  maxlength(30),
+    invRegBname String  maxlength(30),
+    invRegBaccount String  maxlength(30),
+    invRecName String  maxlength(20),
+    invRecMobphone String  maxlength(15),
+    invRecProvince String  maxlength(30),
+    invGotoAddr String  maxlength(50)
+  }
+
+
+entity Link {
+    linkId Integer required ,
+    linkTitle String  maxlength(100),
+    linkUrl String  maxlength(100),
+    linkPic String  maxlength(100),
+    linkSort Integer required 
+  }
+
+
+entity LiveArea {
+    liveAreaId Integer required ,
+    liveAreaName String required maxlength(255),
+    parentAreaId Integer required ,
+    addTime Integer required ,
+    firstLetter String required maxlength(2),
+    areaNumber String  maxlength(10),
+    post Integer  ,
+    hotCity Integer required ,
+    number Integer required 
+  }
+
+
+entity LiveClass {
+    liveClassId Integer required ,
+    liveClassName String required maxlength(255),
+    parentClassId Integer required ,
+    liveClassSort Integer  
+  }
+
+
+entity LiveGroupbuy {
+    groupbuyId Integer required ,
+    groupbuyName String required maxlength(255),
+    groupbuyRemark String required maxlength(255),
+    startTime Integer required ,
+    endTime Integer required ,
+    validity Integer required ,
+    storeId Integer required ,
+    storeName String required maxlength(255),
+    originalPrice BigDecimal required ,
+    groupbuyPrice BigDecimal required ,
+    buyerCount Integer  ,
+    buyerLimit Integer  ,
+    buyerNum Integer  ,
+    groupbuyIntro String  ,
+    groupbuyPic String  maxlength(255),
+    groupbuyPic1 String  maxlength(255),
+    publishTime Integer required ,
+    isHot Integer  ,
+    isOpen Integer  ,
+    cityId Integer  ,
+    areaId Integer  ,
+    mallId Integer  ,
+    classId Integer  ,
+    sClassId Integer  ,
+    isAudit Integer  
+  }
+
+
+entity LiveOrder {
+    orderId Integer required ,
+    orderSn Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(100),
+    mobile Integer required ,
+    storeId Integer required ,
+    storeName String required maxlength(100),
+    addTime Integer required ,
+    itemId Integer required ,
+    itemName String required maxlength(255),
+    number Integer  ,
+    price BigDecimal required ,
+    paymentCode String required maxlength(10),
+    paymentTime Integer  ,
+    pyAmount BigDecimal  ,
+    state Integer required ,
+    leaveMessage String  ,
+    useTime Integer  ,
+    finishTime Integer  ,
+    cancelTime Integer  ,
+    cancelReason String  maxlength(255)
+  }
+
+
+entity LiveOrderPwd {
+    orderItemId Integer required ,
+    orderId Integer required ,
+    state Integer required ,
+    orderPwd String required maxlength(255),
+    useTime Integer  
+  }
+
+
+entity LockUsr {
+    pid Integer required ,
+    pvalue Integer required ,
+    expiretime Integer required 
+  }
+
+
+entity MailCron {
+    mailId Integer required ,
+    mail String required maxlength(100),
+    subject String required maxlength(255),
+    contnet String required 
+  }
+
+
+entity MailMsgTemlates {
+    name String required maxlength(100),
+    title String  maxlength(100),
+    code String required maxlength(30),
+    content String required 
+  }
+
+
+entity MallConsult {
+    mcId Integer required ,
+    mctId Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    mcContent String required maxlength(500),
+    mcAddtime Integer required ,
+    isReply Integer required ,
+    mcReply String required maxlength(500),
+    mcReplyTime Integer required ,
+    adminId Integer required ,
+    adminName String required maxlength(50)
+  }
+
+
+entity MallConsultType {
+    mctId Integer required ,
+    mctName String required maxlength(50),
+    mctIntroduce String required ,
+    mctSort Integer required 
+  }
+
+
+entity MbCategory {
+    gcId Integer required ,
+    gcThumb String  maxlength(150)
+  }
+
+
+entity MbFeedback {
+    id Integer required ,
+    content String  maxlength(500),
+    type String  maxlength(50),
+    ftime Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50)
+  }
+
+
+entity MbPayment {
+    paymentId Integer required ,
+    paymentCode String required maxlength(12),
+    paymentName String required maxlength(10),
+    paymentConfig String  maxlength(2000),
+    paymentState String required 
+  }
+
+
+entity MbSellerToken {
+    tokenId Integer required ,
+    sellerId Integer required ,
+    sellerName String required maxlength(50),
+    token String required maxlength(50),
+    loginTime Integer required ,
+    clientType String required maxlength(10)
+  }
+
+
+entity MbSpecial {
+    specialId Integer required ,
+    specialDesc String required maxlength(20)
+  }
+
+
+entity MbSpecialItem {
+    itemId Integer required ,
+    specialId Integer required ,
+    itemType String required maxlength(50),
+    itemData String  maxlength(2000),
+    itemUsable Integer required ,
+    itemSort Integer required 
+  }
+
+
+entity MbUserToken {
+    tokenId Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    token String required maxlength(50),
+    loginTime Integer required ,
+    clientType String required maxlength(10),
+    openid String  maxlength(50)
+  }
+
+
+entity Member {
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    memberTruename String  maxlength(20),
+    memberAvatar String  maxlength(50),
+    memberSex Integer  ,
+    memberBirthday LocalDate  ,
+    memberPasswd String required maxlength(32),
+    memberPaypwd String  maxlength(32),
+    memberEmail String required maxlength(100),
+    memberEmailBind Integer required ,
+    memberMobile String  maxlength(11),
+    memberMobileBind Integer required ,
+    memberQq String  maxlength(100),
+    memberWw String  maxlength(100),
+    memberLoginNum Integer required ,
+    memberTime String required maxlength(10),
+    memberLoginTime String required maxlength(10),
+    memberOldLoginTime String required maxlength(10),
+    memberLoginIp String  maxlength(20),
+    memberOldLoginIp String  maxlength(20),
+    memberQqopenid String  maxlength(100),
+    memberQqinfo String  ,
+    memberSinaopenid String  maxlength(100),
+    memberSinainfo String  ,
+    weixinUnionid String  maxlength(50),
+    weixinInfo String  maxlength(255),
+    memberPoints Integer required ,
+    availablePredeposit BigDecimal required ,
+    freezePredeposit BigDecimal required ,
+    availableRcBalance BigDecimal required ,
+    freezeRcBalance BigDecimal required ,
+    informAllow Integer required ,
+    isBuy Integer required ,
+    isAllowtalk Integer required ,
+    memberState Integer required ,
+    memberSnsvisitnum Integer required ,
+    memberAreaid Integer  ,
+    memberCityid Integer  ,
+    memberProvinceid Integer  ,
+    memberAreainfo String  maxlength(255),
+    memberPrivacy String  ,
+    memberQuicklink String  maxlength(255),
+    memberExppoints Integer required ,
+    inviterId Integer  ,
+    memberWxopenid String  maxlength(100)
+  }
+
+
+entity MemberCommon {
+    memberId Integer required ,
+    authCode String  maxlength(6),
+    sendAcodeTime Integer required ,
+    sendMbTime Integer  ,
+    sendEmailTime Integer  ,
+    sendMbTimes Integer required ,
+    sendAcodeTimes Integer required ,
+    authCodeCheckTimes Integer required ,
+    authModifyPwdTime Integer required 
+  }
+
+
+entity MemberMsgSetting {
+    mmtCode String required maxlength(50),
+    memberId Integer required ,
+    isReceive Integer required 
+  }
+
+
+entity MemberMsgTpl {
+    mmtCode String required maxlength(50),
+    mmtName String required maxlength(50),
+    mmtMessageSwitch Integer required ,
+    mmtMessageContent String required maxlength(255),
+    mmtShortSwitch Integer required ,
+    mmtShortContent String required maxlength(255),
+    mmtMailSwitch Integer required ,
+    mmtMailSubject String required maxlength(255),
+    mmtMailContent String required 
+  }
+
+
+entity Message {
+    messageId Integer required ,
+    messageParentId Integer required ,
+    fromMemberId Integer required ,
+    toMemberId String required maxlength(1000),
+    messageTitle String  maxlength(50),
+    messageBody String required maxlength(255),
+    messageTime String required maxlength(10),
+    messageUpdateTime String  maxlength(10),
+    messageOpen Integer required ,
+    messageState Integer required ,
+    messageType Integer required ,
+    readMemberId String  maxlength(1000),
+    delMemberId String  maxlength(1000),
+    messageIsmore Integer required ,
+    fromMemberName String  maxlength(100),
+    toMemberName String  maxlength(100)
+  }
+
+
+entity MicroAdv {
+    advId Integer required ,
+    advType String  maxlength(50),
+    advName String required maxlength(255),
+    advImage String required maxlength(255),
+    advUrl String required maxlength(255),
+    advSort Integer required 
+  }
+
+
+entity MicroComment {
+    commentId Integer required ,
+    commentType Integer required ,
+    commentObjectId Integer required ,
+    commentMessage String required maxlength(255),
+    commentMemberId Integer required ,
+    commentTime Integer required 
+  }
+
+
+entity MicroGoods {
+    commendId Integer required ,
+    commendMemberId Integer required ,
+    commendGoodsId Integer required ,
+    commendGoodsCommonid Integer required ,
+    commendGoodsStoreId Integer required ,
+    commendGoodsName String required maxlength(100),
+    commendGoodsPrice BigDecimal required ,
+    commendGoodsImage String required maxlength(100),
+    commendMessage String required maxlength(1000),
+    commendTime Integer required ,
+    classId Integer required ,
+    likeCount Integer required ,
+    commentCount Integer required ,
+    clickCount Integer required ,
+    microshopCommend Integer required ,
+    microshopSort Integer required 
+  }
+
+
+entity MicroGoodsClass {
+    classId Integer required ,
+    className String required maxlength(50),
+    classParentId Integer required ,
+    classSort Integer required ,
+    classKeyword String required maxlength(500),
+    classImage String required maxlength(100),
+    classCommend Integer required ,
+    classDefault Integer required 
+  }
+
+
+entity MicroGoodsRelation {
+    relationId Integer required ,
+    classId Integer required ,
+    shopClassId Integer required 
+  }
+
+
+entity MicroLike {
+    likeId Integer required ,
+    likeType Integer required ,
+    likeObjectId Integer required ,
+    likeMemberId Integer required ,
+    likeTime Integer required 
+  }
+
+
+entity MicroMemberInfo {
+    memberId Integer required ,
+    visitCount Integer required ,
+    personalCount Integer required ,
+    goodsCount Integer required 
+  }
+
+
+entity MicroPersonal {
+    personalId Integer required ,
+    commendMemberId Integer required ,
+    commendImage String required ,
+    commendBuy String required ,
+    commendMessage String required maxlength(1000),
+    commendTime Integer required ,
+    classId Integer required ,
+    likeCount Integer required ,
+    commentCount Integer required ,
+    clickCount Integer required ,
+    microshopCommend Integer required ,
+    microshopSort Integer required 
+  }
+
+
+entity MicroPersonalClass {
+    classId Integer required ,
+    className String required maxlength(50),
+    classSort Integer required ,
+    classImage String required maxlength(100)
+  }
+
+
+entity MicroStore {
+    microshopStoreId Integer required ,
+    shopStoreId Integer required ,
+    microshopSort Integer  ,
+    microshopCommend Integer  ,
+    likeCount Integer required ,
+    commentCount Integer required ,
+    clickCount Integer required 
+  }
+
+
+entity Navigation {
+    navId Integer required ,
+    navType Integer required ,
+    navTitle String  maxlength(100),
+    navUrl String  maxlength(255),
+    navLocation Integer required ,
+    navNewOpen Integer required ,
+    navSort Integer required ,
+    itemId Integer required ,
+    navIsClose Integer required 
+  }
+
+
+entity OffpayArea {
+    storeId Integer required ,
+    areaId String  
+  }
+
+
+entity OrderList {
+    orderId Integer required ,
+    orderSn Integer required ,
+    paySn Integer required ,
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    buyerId Integer required ,
+    buyerName String required maxlength(50),
+    buyerEmail String required maxlength(80),
+    addTime Integer required ,
+    paymentCode String required maxlength(10),
+    paymentTime Integer  ,
+    finnshedTime Integer required ,
+    goodsAmount BigDecimal required ,
+    orderAmount BigDecimal required ,
+    rcbAmount BigDecimal required ,
+    pdAmount BigDecimal required ,
+    shippingFee BigDecimal  ,
+    evaluationState Integer  ,
+    orderState Integer required ,
+    refundState Integer  ,
+    lockState Integer  ,
+    deleteState Integer required ,
+    refundAmount BigDecimal  ,
+    delayTime Integer  ,
+    orderFrom Integer required ,
+    shippingCode String  maxlength(50)
+  }
+
+
+entity OrderBill {
+    obNo Integer required ,
+    obStartDate Integer required ,
+    obEndDate Integer required ,
+    obOrderTotals BigDecimal required ,
+    obShippingTotals BigDecimal required ,
+    obOrderReturnTotals BigDecimal required ,
+    obCommisTotals BigDecimal required ,
+    obCommisReturnTotals BigDecimal required ,
+    obStoreCostTotals BigDecimal required ,
+    obResultTotals BigDecimal required ,
+    obCreateDate Integer  ,
+    osMonth Integer required ,
+    obState String  ,
+    obPayDate Integer  ,
+    obPayContent String  maxlength(200),
+    obStoreId Integer required ,
+    obStoreName String  maxlength(50)
+  }
+
+
+entity OrderCommon {
+    orderId Integer required ,
+    storeId Integer required ,
+    shippingTime Integer required ,
+    shippingExpressId Integer required ,
+    evaluationTime Integer required ,
+    evalsellerState String required ,
+    evalsellerTime Integer required ,
+    orderMessage String  maxlength(300),
+    orderPointscount Integer required ,
+    voucherPrice Integer  ,
+    voucherCode String  maxlength(32),
+    deliverExplain String  ,
+    daddressId Integer required ,
+    reciverName String required maxlength(50),
+    reciverInfo String required maxlength(500),
+    reciverProvinceId Integer required ,
+    reciverCityId Integer required ,
+    invoiceInfo String  maxlength(500),
+    promotionInfo String  maxlength(500),
+    dlyoPickupCode String  maxlength(4)
+  }
+
+
+entity OrderGoods {
+    recId Integer required ,
+    orderId Integer required ,
+    goodsId Integer required ,
+    goodsName String required maxlength(50),
+    goodsPrice BigDecimal required ,
+    goodsNum Integer required ,
+    goodsImage String  maxlength(100),
+    goodsPayPrice BigDecimal required ,
+    storeId Integer required ,
+    buyerId Integer required ,
+    goodsType String required ,
+    promotionsId Integer required ,
+    commisRate Integer required ,
+    gcId Integer required 
+  }
+
+
+entity OrderLog {
+    logId Integer required ,
+    orderId Integer required ,
+    logMsg String  maxlength(150),
+    logTime Integer required ,
+    logRole String required maxlength(2),
+    logUser String  maxlength(30),
+    logOrderstate String  
+  }
+
+
+entity OrderPay {
+    payId Integer required ,
+    paySn Integer required ,
+    buyerId Integer required ,
+    apiPayState String  
+  }
+
+
+entity OrderStatis {
+    osMonth Integer required ,
+    osYear Integer  ,
+    osStartDate Integer required ,
+    osEndDate Integer required ,
+    osOrderTotals BigDecimal required ,
+    osShippingTotals BigDecimal required ,
+    osOrderReturnTotals BigDecimal required ,
+    osCommisTotals BigDecimal required ,
+    osCommisReturnTotals BigDecimal required ,
+    osStoreCostTotals BigDecimal required ,
+    osResultTotals BigDecimal required ,
+    osCreateDate Integer  
+  }
+
+
+entity Payment {
+    paymentId Integer required ,
+    paymentCode String required maxlength(10),
+    paymentName String required maxlength(10),
+    paymentConfig String  ,
+    paymentState String required 
+  }
+
+
+entity PdCash {
+    pdcId Integer required ,
+    pdcSn Integer required ,
+    pdcMemberId Integer required ,
+    pdcMemberName String required maxlength(50),
+    pdcAmount BigDecimal required ,
+    pdcBankName String required maxlength(40),
+    pdcBankNo String  maxlength(30),
+    pdcBankUser String  maxlength(10),
+    pdcAddTime Integer required ,
+    pdcPaymentTime Integer  ,
+    pdcPaymentState String required ,
+    pdcPaymentAdmin String  maxlength(30)
+  }
+
+
+entity PdLog {
+    lgId Integer required ,
+    lgMemberId Integer required ,
+    lgMemberName String required maxlength(50),
+    lgAdminName String  maxlength(50),
+    lgType String required maxlength(15),
+    lgAvAmount BigDecimal required ,
+    lgFreezeAmount BigDecimal required ,
+    lgAddTime Integer required ,
+    lgDesc String  maxlength(150)
+  }
+
+
+entity PdRecharge {
+    pdrId Integer required ,
+    pdrSn Integer required ,
+    pdrMemberId Integer required ,
+    pdrMemberName String required maxlength(50),
+    pdrAmount BigDecimal required ,
+    pdrPaymentCode String  maxlength(20),
+    pdrPaymentName String  maxlength(15),
+    pdrTradeSn String  maxlength(50),
+    pdrAddTime Integer required ,
+    pdrPaymentState String required ,
+    pdrPaymentTime Integer required ,
+    pdrAdmin String  maxlength(30)
+  }
+
+
+entity PointsCart {
+    pcartId Integer required ,
+    pmemberId Integer required ,
+    pgoodsId Integer required ,
+    pgoodsName String required maxlength(100),
+    pgoodsPoints Integer required ,
+    pgoodsChoosenum Integer required ,
+    pgoodsImage String  maxlength(100)
+  }
+
+
+entity PointsGoods {
+    pgoodsId Integer required ,
+    pgoodsName String required maxlength(100),
+    pgoodsPrice BigDecimal required ,
+    pgoodsPoints Integer required ,
+    pgoodsImage String required maxlength(100),
+    pgoodsTag String required maxlength(100),
+    pgoodsSerial String required maxlength(50),
+    pgoodsStorage Integer required ,
+    pgoodsShow Integer required ,
+    pgoodsCommend Integer required ,
+    pgoodsAddTime Integer required ,
+    pgoodsKeywords String  maxlength(100),
+    pgoodsDescription String  maxlength(200),
+    pgoodsBody String required ,
+    pgoodsState Integer required ,
+    pgoodsCloseReason String  maxlength(255),
+    pgoodsSalenum Integer required ,
+    pgoodsView Integer required ,
+    pgoodsIslimit Integer required ,
+    pgoodsLimitnum Integer  ,
+    pgoodsIslimittime Integer required ,
+    pgoodsLimitmgrade Integer required ,
+    pgoodsStarttime Integer  ,
+    pgoodsEndtime Integer  ,
+    pgoodsSort Integer required 
+  }
+
+
+entity PointsLog {
+    plId Integer required ,
+    plMemberid Integer required ,
+    plMembername String required maxlength(100),
+    plAdminid Integer  ,
+    plAdminname String  maxlength(100),
+    plPoints Integer required ,
+    plAddtime Integer required ,
+    plDesc String required maxlength(100),
+    plStage String required maxlength(50)
+  }
+
+
+entity PointsOrder {
+    pointOrderid Integer required ,
+    pointOrdersn String required maxlength(20),
+    pointBuyerid Integer required ,
+    pointBuyername String required maxlength(50),
+    pointBuyeremail String required maxlength(100),
+    pointAddtime Integer required ,
+    pointShippingtime Integer  ,
+    pointShippingcode String  maxlength(50),
+    pointShippingEcode String  maxlength(30),
+    pointFinnshedtime Integer  ,
+    pointAllpoint Integer required ,
+    pointOrdermessage String  maxlength(300),
+    pointOrderstate Integer required 
+  }
+
+
+entity PointsOrderaddress {
+    pointOaid Integer required ,
+    pointOrderid Integer required ,
+    pointTruename String required maxlength(50),
+    pointAreaid Integer required ,
+    pointAreainfo String required maxlength(100),
+    pointAddress String required maxlength(200),
+    pointZipcode String required maxlength(20),
+    pointTelphone String required maxlength(20),
+    pointMobphone String required maxlength(20)
+  }
+
+
+entity PointsOrdergoods {
+    pointRecid Integer required ,
+    pointOrderid Integer required ,
+    pointGoodsid Integer required ,
+    pointGoodsname String required maxlength(100),
+    pointGoodspoints Integer required ,
+    pointGoodsnum Integer required ,
+    pointGoodsimage String  maxlength(100)
+  }
+
+
+entity PBoothGoods {
+    boothGoodsId Integer required ,
+    storeId Integer required ,
+    goodsId Integer required ,
+    gcId Integer required ,
+    boothState Integer required 
+  }
+
+
+entity PBoothQuota {
+    boothQuotaId Integer required ,
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    boothQuotaStarttime Integer required ,
+    boothQuotaEndtime Integer required ,
+    boothState Integer required 
+  }
+
+
+entity PBundling {
+    blId Integer required ,
+    blName String required maxlength(50),
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    blDiscountPrice BigDecimal required ,
+    blFreightChoose Integer required ,
+    blFreight BigDecimal required ,
+    blState Integer required 
+  }
+
+
+entity PBundlingGoods {
+    blGoodsId Integer required ,
+    blId Integer required ,
+    goodsId Integer required ,
+    goodsName String required maxlength(50),
+    goodsImage String required maxlength(100),
+    blGoodsPrice BigDecimal required ,
+    blAppoint Integer required 
+  }
+
+
+entity PBundlingQuota {
+    blQuotaId Integer required ,
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    blQuotaMonth Integer required ,
+    blQuotaStarttime String required maxlength(10),
+    blQuotaEndtime String required maxlength(10),
+    blState Integer required 
+  }
+
+
+entity PMansong {
+    mansongId Integer required ,
+    mansongName String required maxlength(50),
+    quotaId Integer required ,
+    startTime Integer required ,
+    endTime Integer required ,
+    memberId Integer required ,
+    storeId Integer required ,
+    memberName String required maxlength(50),
+    storeName String required maxlength(50),
+    state Integer required ,
+    remark String required maxlength(200)
+  }
+
+
+entity PMansongQuota {
+    quotaId Integer required ,
+    applyId Integer required ,
+    memberId Integer required ,
+    storeId Integer required ,
+    memberName String required maxlength(50),
+    storeName String required maxlength(50),
+    startTime Integer required ,
+    endTime Integer required ,
+    state Integer required 
+  }
+
+
+entity PMansongRule {
+    ruleId Integer required ,
+    mansongId Integer required ,
+    price Integer required ,
+    discount Integer required ,
+    mansongGoodsName String required maxlength(50),
+    goodsId Integer required 
+  }
+
+
+entity PXianshi {
+    xianshiId Integer required ,
+    xianshiName String required maxlength(50),
+    xianshiTitle String  maxlength(10),
+    xianshiExplain String  maxlength(50),
+    quotaId Integer required ,
+    startTime Integer required ,
+    endTime Integer required ,
+    memberId Integer required ,
+    storeId Integer required ,
+    memberName String required maxlength(50),
+    storeName String required maxlength(50),
+    lowerLimit Integer required ,
+    state Integer required 
+  }
+
+
+entity PXianshiGoods {
+    xianshiGoodsId Integer required ,
+    xianshiId Integer required ,
+    xianshiName String required maxlength(50),
+    xianshiTitle String  maxlength(10),
+    xianshiExplain String  maxlength(50),
+    goodsId Integer required ,
+    storeId Integer required ,
+    goodsName String required maxlength(100),
+    goodsPrice BigDecimal required ,
+    xianshiPrice BigDecimal required ,
+    goodsImage String required maxlength(100),
+    startTime Integer required ,
+    endTime Integer required ,
+    lowerLimit Integer required ,
+    state Integer required ,
+    xianshiRecommend Integer required ,
+    gcId1 Integer  
+  }
+
+
+entity PXianshiQuota {
+    quotaId Integer required ,
+    memberId Integer required ,
+    storeId Integer required ,
+    memberName String required maxlength(50),
+    storeName String required maxlength(50),
+    startTime Integer required ,
+    endTime Integer required 
+  }
+
+
+entity RcbLog {
+    id Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    type String required maxlength(15),
+    addTime Integer required ,
+    availableAmount BigDecimal required ,
+    freezeAmount BigDecimal required ,
+    description String  maxlength(150)
+  }
+
+
+entity Rechargecard {
+    id Integer required ,
+    sn String required maxlength(50),
+    denomination BigDecimal required ,
+    batchflag String required maxlength(20),
+    adminName String  maxlength(50),
+    tscreated Integer required ,
+    tsused Integer required ,
+    state Integer required ,
+    memberId Integer required ,
+    memberName String  maxlength(50)
+  }
+
+
+entity RecPosition {
+    recId Integer required ,
+    picType String required ,
+    title String required maxlength(200),
+    content String required 
+  }
+
+
+entity RefundReason {
+    reasonId Integer required ,
+    reasonInfo String required maxlength(50),
+    sort Integer  ,
+    updateTime Integer required 
+  }
+
+
+entity RefundReturn {
+    refundId Integer required ,
+    orderId Integer required ,
+    orderSn String required maxlength(50),
+    refundSn String required maxlength(50),
+    storeId Integer required ,
+    storeName String required maxlength(20),
+    buyerId Integer required ,
+    buyerName String required maxlength(50),
+    goodsId Integer required ,
+    orderGoodsId Integer  ,
+    goodsName String required maxlength(50),
+    goodsNum Integer  ,
+    refundAmount BigDecimal  ,
+    goodsImage String  maxlength(100),
+    orderGoodsType Integer  ,
+    refundType Integer  ,
+    sellerState Integer  ,
+    refundState Integer  ,
+    returnType Integer  ,
+    orderLock Integer  ,
+    goodsState Integer  ,
+    addTime Integer required ,
+    sellerTime Integer  ,
+    adminTime Integer  ,
+    reasonId Integer  ,
+    reasonInfo String  maxlength(300),
+    picInfo String  maxlength(300),
+    buyerMessage String  maxlength(300),
+    sellerMessage String  maxlength(300),
+    adminMessage String  maxlength(300),
+    expressId Integer  ,
+    invoiceNo String  maxlength(50),
+    shipTime Integer  ,
+    delayTime Integer  ,
+    receiveTime Integer  ,
+    receiveMessage String  maxlength(300),
+    commisRate Integer  
+  }
+
+
+entity Seller {
+    sellerId Integer required ,
+    sellerName String required maxlength(50),
+    memberId Integer required ,
+    sellerGroupId Integer required ,
+    storeId Integer required ,
+    isAdmin Integer required ,
+    sellerQuicklink String  maxlength(255),
+    lastLoginTime Integer  
+  }
+
+
+entity SellerGroup {
+    groupId Integer required ,
+    groupName String required maxlength(50),
+    limits String required ,
+    smtLimits String required ,
+    storeId Integer required 
+  }
+
+
+entity SellerLog {
+    logId Integer required ,
+    logContent String required maxlength(50),
+    logTime Integer required ,
+    logSellerId Integer required ,
+    logSellerName String required maxlength(50),
+    logStoreId Integer required ,
+    logSellerIp String required maxlength(50),
+    logUrl String required maxlength(50),
+    logState Integer required 
+  }
+
+
+entity Seo {
+    id Integer required ,
+    title String required maxlength(255),
+    keywords String required maxlength(255),
+    description String required ,
+    type String required maxlength(20)
+  }
+
+
+entity Setting {
+    name String required maxlength(50),
+    value String  
+  }
+
+
+entity SmsLog {
+    logId Integer required ,
+    logPhone String required maxlength(11),
+    logCaptcha String required maxlength(6),
+    logIp String required maxlength(15),
+    logMsg String required maxlength(300),
+    logType Integer required ,
+    addTime Integer required ,
+    memberId Integer  ,
+    memberName String  maxlength(50)
+  }
+
+
+entity SnsAlbumclass {
+    acId Integer required ,
+    acName String required maxlength(100),
+    memberId Integer required ,
+    acDes String required maxlength(255),
+    acSort Integer required ,
+    acCover String required maxlength(255),
+    uploadTime Integer required ,
+    isDefault Integer required 
+  }
+
+
+entity SnsAlbumpic {
+    apId Integer required ,
+    apName String required maxlength(100),
+    acId Integer required ,
+    apCover String required maxlength(255),
+    apSize Integer required ,
+    apSpec String required maxlength(100),
+    memberId Integer required ,
+    uploadTime Integer required ,
+    apType Integer required ,
+    itemId Integer required 
+  }
+
+
+entity SnsBinding {
+    snsbindId Integer required ,
+    snsbindMemberid Integer required ,
+    snsbindMembername String required maxlength(100),
+    snsbindAppsign String required maxlength(50),
+    snsbindUpdatetime Integer required ,
+    snsbindOpenid String required maxlength(100),
+    snsbindOpeninfo String  ,
+    snsbindAccesstoken String required maxlength(100),
+    snsbindExpiresin Integer required ,
+    snsbindRefreshtoken String  maxlength(100)
+  }
+
+
+entity SnsComment {
+    commentId Integer required ,
+    commentMemberid Integer required ,
+    commentMembername String required maxlength(100),
+    commentMemberavatar String  maxlength(100),
+    commentOriginalid Integer required ,
+    commentOriginaltype Integer required ,
+    commentContent String required maxlength(500),
+    commentAddtime Integer required ,
+    commentIp String required maxlength(50),
+    commentState Integer required 
+  }
+
+
+entity SnsFriend {
+    friendId Integer required ,
+    friendFrommid Integer required ,
+    friendFrommname String  maxlength(100),
+    friendFrommavatar String  maxlength(100),
+    friendTomid Integer required ,
+    friendTomname String required maxlength(100),
+    friendTomavatar String  maxlength(100),
+    friendAddtime Integer required ,
+    friendFollowstate Integer required 
+  }
+
+
+entity SnsGoods {
+    snsgoodsGoodsid Integer required ,
+    snsgoodsGoodsname String required maxlength(100),
+    snsgoodsGoodsimage String  maxlength(100),
+    snsgoodsGoodsprice BigDecimal required ,
+    snsgoodsStoreid Integer required ,
+    snsgoodsStorename String required maxlength(100),
+    snsgoodsAddtime Integer required ,
+    snsgoodsLikenum Integer required ,
+    snsgoodsLikemember String  ,
+    snsgoodsSharenum Integer required 
+  }
+
+
+entity SnsMembertag {
+    mtagId Integer required ,
+    mtagName String required maxlength(20),
+    mtagSort Integer required ,
+    mtagRecommend Integer required ,
+    mtagDesc String required maxlength(50),
+    mtagImg String  maxlength(50)
+  }
+
+
+entity SnsMtagmember {
+    mtagId Integer required ,
+    memberId Integer required ,
+    recommend Integer required 
+  }
+
+
+entity SnsSetting {
+    memberId Integer required ,
+    settingSkin String  maxlength(50)
+  }
+
+
+entity SnsSharegoods {
+    shareId Integer required ,
+    shareGoodsid Integer required ,
+    shareMemberid Integer required ,
+    shareMembername String required maxlength(100),
+    shareContent String  maxlength(500),
+    shareAddtime Integer required ,
+    shareLikeaddtime Integer required ,
+    sharePrivacy Integer required ,
+    shareCommentcount Integer required ,
+    shareIsshare Integer required ,
+    shareIslike Integer required 
+  }
+
+
+entity SnsSharestore {
+    shareId Integer required ,
+    shareStoreid Integer required ,
+    shareStorename String required maxlength(100),
+    shareMemberid Integer required ,
+    shareMembername String required maxlength(100),
+    shareContent String  maxlength(500),
+    shareAddtime Integer required ,
+    sharePrivacy Integer required 
+  }
+
+
+entity SnsTracelog {
+    traceId Integer required ,
+    traceOriginalid Integer required ,
+    traceOriginalmemberid Integer required ,
+    traceOriginalstate Integer required ,
+    traceMemberid Integer required ,
+    traceMembername String required maxlength(100),
+    traceMemberavatar String  maxlength(100),
+    traceTitle String  maxlength(500),
+    traceContent String required ,
+    traceAddtime Integer required ,
+    traceState Integer required ,
+    tracePrivacy Integer required ,
+    traceCommentcount Integer required ,
+    traceCopycount Integer required ,
+    traceOrgcommentcount Integer required ,
+    traceOrgcopycount Integer required ,
+    traceFrom Integer  
+  }
+
+
+entity SnsVisitor {
+    vId Integer required ,
+    vMid Integer required ,
+    vMname String required maxlength(100),
+    vMavatar String  maxlength(100),
+    vOwnermid Integer required ,
+    vOwnermname String required maxlength(100),
+    vOwnermavatar String  maxlength(100),
+    vAddtime Integer required 
+  }
+
+
+entity Spec {
+    spId Integer required ,
+    spName String required maxlength(100),
+    spSort Integer required ,
+    classId Integer  ,
+    className String  maxlength(100)
+  }
+
+
+entity SpecValue {
+    spValueId Integer required ,
+    spValueName String required maxlength(100),
+    spId Integer required ,
+    gcId Integer required ,
+    storeId Integer required ,
+    spValueColor String  maxlength(10),
+    spValueSort Integer required 
+  }
+
+
+entity StatMember {
+    statmId Integer required ,
+    statmMemberid Integer required ,
+    statmMembername String required maxlength(100),
+    statmTime Integer required ,
+    statmOrdernum Integer required ,
+    statmOrderamount BigDecimal required ,
+    statmGoodsnum Integer required ,
+    statmPredincrease BigDecimal required ,
+    statmPredreduce BigDecimal required ,
+    statmPointsincrease Integer required ,
+    statmPointsreduce Integer required ,
+    statmUpdatetime Integer required 
+  }
+
+
+entity StatOrder {
+    orderId Integer required ,
+    orderSn Integer required ,
+    orderAddTime Integer required ,
+    paymentCode String  maxlength(10),
+    orderAmount BigDecimal required ,
+    shippingFee BigDecimal  ,
+    evaluationState String  ,
+    orderState String required ,
+    refundState Integer  ,
+    refundAmount BigDecimal  ,
+    orderFrom String required ,
+    orderIsvalid Integer required ,
+    reciverProvinceId Integer required ,
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    gradeId Integer required ,
+    scId Integer required ,
+    buyerId Integer required ,
+    buyerName String required maxlength(50)
+  }
+
+
+entity StatOrdergoods {
+    recId Integer required ,
+    statUpdatetime Integer required ,
+    orderId Integer required ,
+    orderSn Integer required ,
+    orderAddTime Integer required ,
+    paymentCode String  maxlength(10),
+    orderAmount BigDecimal required ,
+    shippingFee BigDecimal  ,
+    evaluationState String  ,
+    orderState String required ,
+    refundState Integer  ,
+    refundAmount BigDecimal  ,
+    orderFrom String required ,
+    orderIsvalid Integer required ,
+    reciverProvinceId Integer required ,
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    gradeId Integer required ,
+    scId Integer required ,
+    buyerId Integer required ,
+    buyerName String required maxlength(50),
+    goodsId Integer required ,
+    goodsName String required maxlength(50),
+    goodsCommonid Integer required ,
+    goodsCommonname String required maxlength(50),
+    gcId Integer required ,
+    gcParentid1 Integer required ,
+    gcParentid2 Integer required ,
+    gcParentid3 Integer required ,
+    brandId Integer required ,
+    brandName String required maxlength(100),
+    goodsSerial String required maxlength(50),
+    goodsPrice BigDecimal required ,
+    goodsNum Integer required ,
+    goodsImage String  maxlength(100),
+    goodsPayPrice BigDecimal required ,
+    goodsType String required ,
+    promotionsId Integer required ,
+    commisRate Integer required 
+  }
+
+
+entity Store {
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    gradeId Integer required ,
+    memberId Integer required ,
+    memberName String required maxlength(50),
+    sellerName String  maxlength(50),
+    scId Integer required ,
+    storeCompanyName String  maxlength(50),
+    provinceId Integer required ,
+    areaInfo String required maxlength(100),
+    storeAddress String required maxlength(100),
+    storeZip String required maxlength(10),
+    storeState Integer required ,
+    storeCloseInfo String  maxlength(255),
+    storeSort Integer required ,
+    storeTime String required maxlength(10),
+    storeEndTime String  maxlength(10),
+    storeLabel String  maxlength(255),
+    storeBanner String  maxlength(255),
+    storeAvatar String  maxlength(150),
+    storeKeywords String required maxlength(255),
+    storeDescription String required maxlength(255),
+    storeQq String  maxlength(50),
+    storeWw String  maxlength(50),
+    storePhone String  maxlength(20),
+    storeZy String  ,
+    storeDomain String  maxlength(50),
+    storeDomainTimes Integer  ,
+    storeRecommend Integer required ,
+    storeTheme String required maxlength(50),
+    storeCredit Integer required ,
+    storeDesccredit Float required ,
+    storeServicecredit Float required ,
+    storeDeliverycredit Float required ,
+    storeCollect Integer required ,
+    storeSlide String  ,
+    storeSlideUrl String  ,
+    storeStamp String  maxlength(200),
+    storePrintdesc String  maxlength(500),
+    storeSales Integer required ,
+    storePresales String  ,
+    storeAftersales String  ,
+    storeWorkingtime String  maxlength(100),
+    storeFreePrice BigDecimal required ,
+    storeDecorationSwitch Integer required ,
+    storeDecorationOnly Integer required ,
+    storeDecorationImageCount Integer required ,
+    liveStoreName String  maxlength(255),
+    liveStoreAddress String  maxlength(255),
+    liveStoreTel String  maxlength(255),
+    liveStoreBus String  maxlength(255),
+    isOwnShop Integer required ,
+    bindAllGc Integer required ,
+    storeVrcodePrefix String  maxlength(3),
+    storeBaozh Integer  ,
+    storeBaozhopen Integer  ,
+    storeBaozhrmb String  maxlength(10),
+    storeQtian Integer  ,
+    storeZhping Integer  ,
+    storeErxiaoshi Integer  ,
+    storeTuihuo Integer  ,
+    storeShiyong Integer  ,
+    storeShiti Integer  ,
+    storeXiaoxie Integer  ,
+    storeHuodaofk Integer  ,
+    storeFreeTime String  maxlength(10),
+    mbTitleImg String  maxlength(150),
+    mbSliders String  ,
+    deliverRegion String  maxlength(50)
+  }
+
+
+entity StoreArea {
+    storeAreaId Integer required ,
+    storeId Integer required ,
+    areaId Integer required ,
+    areaLevel Integer required ,
+    state Integer required 
+  }
+
+
+entity StoreBindClass {
+    bid Integer required ,
+    storeId Integer  ,
+    commisRate Integer  ,
+    class1 Integer  ,
+    class2 Integer  ,
+    class3 Integer  ,
+    state Integer required 
+  }
+
+
+entity StoreClass {
+    scId Integer required ,
+    scName String required maxlength(50),
+    scBail Integer required ,
+    scSort Integer required 
+  }
+
+
+entity StoreCost {
+    costId Integer required ,
+    costStoreId Integer required ,
+    costSellerId Integer required ,
+    costPrice Integer required ,
+    costRemark String required maxlength(255),
+    costState Integer required ,
+    costTime Integer required 
+  }
+
+
+entity StoreDecoration {
+    decorationId Integer required ,
+    decorationName String required maxlength(50),
+    storeId Integer required ,
+    decorationSetting String  maxlength(500),
+    decorationNav String  maxlength(5000),
+    decorationBanner String  maxlength(255)
+  }
+
+
+entity StoreDecorationAlbum {
+    imageId Integer required ,
+    imageName String required maxlength(50),
+    imageOriginName String required maxlength(50),
+    imageWidth Integer required ,
+    imageHeight Integer required ,
+    imageSize Integer required ,
+    storeId Integer required ,
+    uploadTime Integer required 
+  }
+
+
+entity StoreDecorationBlock {
+    blockId Integer required ,
+    decorationId Integer required ,
+    storeId Integer required ,
+    blockLayout String required maxlength(50),
+    blockContent String  ,
+    blockModuleType String  maxlength(50),
+    blockFullWidth Integer  ,
+    blockSort Integer required 
+  }
+
+
+entity StoreExtend {
+    storeId Integer required ,
+    express String  ,
+    pricerange String  ,
+    orderpricerange String  
+  }
+
+
+entity StoreGoodsClass {
+    stcId Integer required ,
+    stcName String required maxlength(50),
+    stcParentId Integer required ,
+    stcState Integer required ,
+    storeId Integer required ,
+    stcSort Integer required 
+  }
+
+
+entity StoreGrade {
+    sgId Integer required ,
+    sgName String  maxlength(50),
+    sgGoodsLimit Integer required ,
+    sgAlbumLimit Integer required ,
+    sgSpaceLimit Integer required ,
+    sgTemplateNumber Integer required ,
+    sgTemplate String  maxlength(255),
+    sgPrice BigDecimal required ,
+    sgDescription String  ,
+    sgFunction String  maxlength(255),
+    sgSort Integer required 
+  }
+
+
+entity StoreJoinin {
+    memberId Integer required ,
+    memberName String  maxlength(50),
+    companyName String  maxlength(50),
+    companyProvinceId Integer required ,
+    companyAddress String  maxlength(50),
+    companyAddressDetail String  maxlength(50),
+    companyPhone String  maxlength(20),
+    companyEmployeeCount Integer  ,
+    companyRegisteredCapital Integer  ,
+    contactsName String  maxlength(50),
+    contactsPhone String  maxlength(20),
+    contactsEmail String  maxlength(50),
+    businessLicenceNumber String  maxlength(50),
+    businessLicenceAddress String  maxlength(50),
+    businessLicenceStart LocalDate  ,
+    businessLicenceEnd LocalDate  ,
+    businessSphere String  maxlength(1000),
+    businessLicenceNumberElectronic String  maxlength(50),
+    organizationCode String  maxlength(50),
+    organizationCodeElectronic String  maxlength(50),
+    generalTaxpayer String  maxlength(50),
+    bankAccountName String  maxlength(50),
+    bankAccountNumber String  maxlength(50),
+    bankName String  maxlength(50),
+    bankCode String  maxlength(50),
+    bankAddress String  maxlength(50),
+    bankLicenceElectronic String  maxlength(50),
+    isSettlementAccount Integer  ,
+    settlementBankAccountName String  maxlength(50),
+    settlementBankAccountNumber String  maxlength(50),
+    settlementBankName String  maxlength(50),
+    settlementBankCode String  maxlength(50),
+    settlementBankAddress String  maxlength(50),
+    taxRegistrationCertificate String  maxlength(50),
+    taxpayerId String  maxlength(50),
+    taxRegistrationCertificateElectronic String  maxlength(50),
+    sellerName String  maxlength(50),
+    storeName String  maxlength(50),
+    storeClassIds String  maxlength(1000),
+    storeClassNames String  maxlength(1000),
+    joininState String  maxlength(50),
+    joininMessage String  maxlength(200),
+    joininYear Integer required ,
+    sgName String  maxlength(50),
+    sgId Integer  ,
+    sgInfo String  maxlength(200),
+    scName String  maxlength(50),
+    scId Integer  ,
+    scBail Integer required ,
+    storeClassCommisRates String  maxlength(200),
+    payingMoneyCertificate String  maxlength(50),
+    payingMoneyCertificateExplain String  maxlength(200),
+    payingAmount BigDecimal required 
+  }
+
+
+entity StoreMsg {
+    smId Integer required ,
+    smtCode String required maxlength(100),
+    storeId Integer required ,
+    smContent String required maxlength(255),
+    smAddtime Integer required ,
+    smReadids String required maxlength(255)
+  }
+
+
+entity StoreMsgRead {
+    smId Integer required ,
+    sellerId Integer required ,
+    readTime Integer required 
+  }
+
+
+entity StoreMsgSetting {
+    smtCode String required maxlength(100),
+    storeId Integer required ,
+    smsMessageSwitch Integer required ,
+    smsShortSwitch Integer required ,
+    smsMailSwitch Integer required ,
+    smsShortNumber String required maxlength(11),
+    smsMailNumber String required maxlength(100)
+  }
+
+
+entity StoreMsgTpl {
+    smtCode String required maxlength(100),
+    smtName String required maxlength(100),
+    smtMessageSwitch Integer required ,
+    smtMessageContent String required maxlength(255),
+    smtMessageForced Integer required ,
+    smtShortSwitch Integer required ,
+    smtShortContent String required maxlength(255),
+    smtShortForced Integer required ,
+    smtMailSwitch Integer required ,
+    smtMailSubject String required maxlength(255),
+    smtMailContent String required ,
+    smtMailForced Integer required 
+  }
+
+
+entity StoreNavigation {
+    snId Integer required ,
+    snTitle String required maxlength(50),
+    snStoreId Integer required ,
+    snContent String  ,
+    snSort Integer required ,
+    snIfShow Integer required ,
+    snAddTime Integer required ,
+    snUrl String  maxlength(255),
+    snNewOpen Integer required 
+  }
+
+
+entity StorePlate {
+    plateId Integer required ,
+    plateName String required maxlength(10),
+    platePosition Integer required ,
+    plateContent String required ,
+    storeId Integer required 
+  }
+
+
+entity StoreReopen {
+    reId Integer required ,
+    reGradeId Integer required ,
+    reGradeName String  maxlength(30),
+    reGradePrice BigDecimal required ,
+    reYear Integer required ,
+    rePayAmount BigDecimal required ,
+    reStoreName String  maxlength(50),
+    reStoreId Integer required ,
+    reState Integer required ,
+    reStartTime Integer  ,
+    reEndTime Integer  ,
+    reCreateTime Integer required ,
+    rePayCert String  maxlength(50),
+    rePayCertExplain String  maxlength(200)
+  }
+
+
+entity StoreSnsComment {
+    scommId Integer required ,
+    straceId Integer required ,
+    scommContent String  maxlength(150),
+    scommMemberid Integer  ,
+    scommMembername String  maxlength(45),
+    scommMemberavatar String  maxlength(50),
+    scommTime String  maxlength(11),
+    scommState Integer required 
+  }
+
+
+entity StoreSnsSetting {
+    sautoStoreid Integer required ,
+    sautoNew Integer required ,
+    sautoNewtitle String required maxlength(150),
+    sautoCoupon Integer required ,
+    sautoCoupontitle String required maxlength(150),
+    sautoXianshi Integer required ,
+    sautoXianshititle String required maxlength(150),
+    sautoMansong Integer required ,
+    sautoMansongtitle String required maxlength(150),
+    sautoBundling Integer required ,
+    sautoBundlingtitle String required maxlength(150),
+    sautoGroupbuy Integer required ,
+    sautoGroupbuytitle String required maxlength(150)
+  }
+
+
+entity StoreSnsTracelog {
+    straceId Integer required ,
+    straceStoreid Integer  ,
+    straceStorename String  maxlength(100),
+    straceStorelogo String required maxlength(255),
+    straceTitle String  maxlength(150),
+    straceContent String  ,
+    straceTime String  maxlength(11),
+    straceCool Integer  ,
+    straceSpread Integer  ,
+    straceComment Integer  ,
+    straceType Integer  ,
+    straceGoodsdata String  maxlength(1000),
+    straceState Integer required 
+  }
+
+
+entity StoreWatermark {
+    wmId Integer required ,
+    jpegQuality Integer required ,
+    wmImageName String  maxlength(255),
+    wmImagePos Integer required ,
+    wmImageTransition Integer required ,
+    wmText String  ,
+    wmTextSize Integer required ,
+    wmTextAngle Integer required ,
+    wmTextPos Integer required ,
+    wmTextFont String  maxlength(50),
+    wmTextColor String required maxlength(7),
+    wmIsOpen Integer required ,
+    storeId Integer  
+  }
+
+
+entity StoreWaybill {
+    storeWaybillId Integer required ,
+    storeId Integer required ,
+    expressId Integer required ,
+    waybillId Integer required ,
+    waybillName String required maxlength(50),
+    storeWaybillData String  maxlength(2000),
+    isDefault Integer required ,
+    storeWaybillLeft Integer required ,
+    storeWaybillTop Integer required 
+  }
+
+
+entity Transport {
+    id Integer required ,
+    title String required maxlength(30),
+    sendTplId Integer  ,
+    storeId Integer required ,
+    updateTime Integer  
+  }
+
+
+entity TransportExtend {
+    id Integer required ,
+    areaId String  ,
+    topAreaId String  ,
+    areaName String  ,
+    sprice BigDecimal  ,
+    transportId Integer required ,
+    transportTitle String  maxlength(60)
+  }
+
+
+entity Type {
+    typeId Integer required ,
+    typeName String required maxlength(100),
+    typeSort Integer required ,
+    classId Integer  ,
+    className String required maxlength(100)
+  }
+
+
+entity TypeBrand {
+    typeId Integer required ,
+    brandId Integer required 
+  }
+
+
+entity TypeSpec {
+    typeId Integer required ,
+    spId Integer required 
+  }
+
+
+entity Upload {
+    uploadId Integer required ,
+    fileName String  maxlength(100),
+    fileThumb String  maxlength(100),
+    fileSize Integer required ,
+    uploadType Integer required ,
+    uploadTime Integer required ,
+    itemId Integer required 
+  }
+
+
+entity Voucher {
+    voucherId Integer required ,
+    voucherCode String required maxlength(32),
+    voucherTId Integer required ,
+    voucherTitle String required maxlength(50),
+    voucherDesc String required maxlength(255),
+    voucherStartDate Integer required ,
+    voucherEndDate Integer required ,
+    voucherPrice Integer required ,
+    voucherLimit BigDecimal required ,
+    voucherStoreId Integer required ,
+    voucherState Integer required ,
+    voucherActiveDate Integer required ,
+    voucherType Integer required ,
+    voucherOwnerId Integer required ,
+    voucherOwnerName String required maxlength(50),
+    voucherOrderId Integer  
+  }
+
+
+entity VoucherPrice {
+    voucherPriceId Integer required ,
+    voucherPriceDescribe String required maxlength(255),
+    voucherPrice Integer required ,
+    voucherDefaultpoints Integer required 
+  }
+
+
+entity VoucherQuota {
+    quotaId Integer required ,
+    quotaApplyid Integer required ,
+    quotaMemberid Integer required ,
+    quotaMembername String required maxlength(100),
+    quotaStoreid Integer required ,
+    quotaStorename String required maxlength(100),
+    quotaStarttime Integer required ,
+    quotaEndtime Integer required ,
+    quotaState Integer required 
+  }
+
+
+entity VoucherTemplate {
+    voucherTId Integer required ,
+    voucherTTitle String required maxlength(50),
+    voucherTDesc String required maxlength(255),
+    voucherTStartDate Integer required ,
+    voucherTEndDate Integer required ,
+    voucherTPrice Integer required ,
+    voucherTLimit BigDecimal required ,
+    voucherTStoreId Integer required ,
+    voucherTStorename String  maxlength(100),
+    voucherTScId Integer required ,
+    voucherTCreatorId Integer required ,
+    voucherTState Integer required ,
+    voucherTTotal Integer required ,
+    voucherTGiveout Integer required ,
+    voucherTUsed Integer required ,
+    voucherTAddDate Integer required ,
+    voucherTQuotaid Integer required ,
+    voucherTPoints Integer required ,
+    voucherTEachlimit Integer required ,
+    voucherTStyleimg String  maxlength(200),
+    voucherTCustomimg String  maxlength(200),
+    voucherTRecommend Integer required 
+  }
+
+
+entity VrGroupbuyArea {
+    areaId Integer required ,
+    areaName String required maxlength(100),
+    parentAreaId Integer required ,
+    addTime Integer required ,
+    firstLetter String required maxlength(1),
+    areaNumber String  maxlength(10),
+    post String  maxlength(10),
+    hotCity Integer required ,
+    number Integer required 
+  }
+
+
+entity VrGroupbuyClass {
+    classId Integer required ,
+    className String required maxlength(100),
+    parentClassId Integer required ,
+    classSort Integer  
+  }
+
+
+entity VrOrder {
+    orderId Integer required ,
+    orderSn Integer required ,
+    storeId Integer required ,
+    storeName String required maxlength(50),
+    buyerId Integer required ,
+    buyerName String required maxlength(50),
+    buyerPhone String required maxlength(11),
+    addTime Integer required ,
+    paymentCode String required maxlength(10),
+    paymentTime Integer  ,
+    tradeNo String  maxlength(35),
+    closeTime Integer  ,
+    closeReason String  maxlength(50),
+    finnshedTime Integer  ,
+    orderAmount BigDecimal required ,
+    refundAmount BigDecimal  ,
+    rcbAmount BigDecimal required ,
+    pdAmount BigDecimal required ,
+    orderState Integer required ,
+    refundState Integer  ,
+    buyerMsg String  maxlength(150),
+    deleteState Integer required ,
+    goodsId Integer required ,
+    goodsName String required maxlength(50),
+    goodsPrice BigDecimal required ,
+    goodsNum Integer required ,
+    goodsImage String  maxlength(100),
+    commisRate Integer required ,
+    gcId Integer  ,
+    vrIndate Integer  ,
+    vrSendTimes Integer required ,
+    vrInvalidRefund Integer required ,
+    orderPromotionType Integer required ,
+    promotionsId Integer  ,
+    orderFrom Integer required ,
+    evaluationState Integer required ,
+    evaluationTime Integer required ,
+    useState Integer  
+  }
+
+
+entity VrOrderBill {
+    obNo Integer required ,
+    obStartDate Integer required ,
+    obEndDate Integer required ,
+    obOrderTotals BigDecimal required ,
+    obCommisTotals BigDecimal required ,
+    obResultTotals BigDecimal required ,
+    obCreateDate Integer  ,
+    osMonth Integer required ,
+    obState String  ,
+    obPayDate Integer  ,
+    obPayContent String  maxlength(200),
+    obStoreId Integer required ,
+    obStoreName String  maxlength(50)
+  }
+
+
+entity VrOrderCode {
+    recId Integer required ,
+    orderId Integer required ,
+    storeId Integer required ,
+    buyerId Integer required ,
+    vrCode String required maxlength(18),
+    vrState Integer required ,
+    vrUsetime Integer  ,
+    payPrice BigDecimal required ,
+    vrIndate Integer  ,
+    commisRate Integer required ,
+    refundLock Integer  ,
+    vrInvalidRefund Integer required 
+  }
+
+
+entity VrOrderStatis {
+    osMonth Integer required ,
+    osYear Integer  ,
+    osStartDate Integer required ,
+    osEndDate Integer required ,
+    osOrderTotals BigDecimal required ,
+    osCommisTotals BigDecimal required ,
+    osResultTotals BigDecimal required ,
+    osCreateDate Integer  
+  }
+
+
+entity VrRefund {
+    refundId Integer required ,
+    orderId Integer required ,
+    orderSn String required maxlength(50),
+    refundSn String required maxlength(50),
+    storeId Integer required ,
+    storeName String required maxlength(20),
+    buyerId Integer required ,
+    buyerName String required maxlength(50),
+    goodsId Integer required ,
+    goodsNum Integer  ,
+    goodsName String required maxlength(50),
+    goodsImage String  maxlength(100),
+    codeSn String required maxlength(300),
+    refundAmount BigDecimal  ,
+    adminState Integer  ,
+    addTime Integer required ,
+    adminTime Integer  ,
+    buyerMessage String  maxlength(300),
+    adminMessage String  maxlength(300),
+    commisRate Integer  
+  }
+
+
+entity Waybill {
+    waybillId Integer required ,
+    waybillName String required maxlength(50),
+    waybillImage String required maxlength(50),
+    waybillWidth Integer required ,
+    waybillHeight Integer required ,
+    waybillData String  maxlength(2000),
+    waybillUsable Integer required ,
+    waybillTop Integer required ,
+    waybillLeft Integer required ,
+    expressId Integer required ,
+    expressName String required maxlength(50),
+    storeId Integer required 
+  }
+
+
+entity Web {
+    webId Integer required ,
+    webName String  maxlength(20),
+    styleName String  maxlength(20),
+    webPage String  maxlength(10),
+    updateTime Integer required ,
+    webSort Integer  ,
+    webShow Integer  ,
+    webHtml String  
+  }
+
+
+entity WebChannel {
+    channelId Integer required ,
+    channelName String  maxlength(50),
+    channelStyle String  maxlength(20),
+    gcId Integer  ,
+    gcName String  maxlength(50),
+    keywords String  maxlength(255),
+    description String  maxlength(255),
+    topId Integer  ,
+    floorIds String  maxlength(100),
+    updateTime Integer required ,
+    channelShow Integer required 
+  }
+
+
+entity WebCode {
+    codeId Integer required ,
+    webId Integer required ,
+    codeType String required maxlength(10),
+    varName String required maxlength(20),
+    codeInfo String  ,
+    showName String  maxlength(20)
+  }
+
+
+entity WebSpecial {
+    specialId Integer required ,
+    specialTitle String required maxlength(50),
+    specialMarginTop Integer  ,
+    specialBackground String  maxlength(255),
+    specialImage String  maxlength(255),
+    specialImageAll String  ,
+    specialContent String  ,
+    specialModifyTime Integer required ,
+    specialPublishId Integer required ,
+    specialState Integer required ,
+    specialBackgroundColor String required maxlength(10),
+    specialRepeat String required maxlength(10)
+  }
+
